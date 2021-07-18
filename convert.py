@@ -145,9 +145,11 @@ def convert_to_bilou(jsonl_file, para_delimiter='\n\n\n', line_delimiter='\n', w
 
         annotations.append(annotation.serialize())
     
-    with open(jsonl_file[:jsonl_file.rindex('/')+1]+'annotation_iob.json', 'w') as f:
+    out_path = jsonl_file.replace('\\', '/')
+    out_file_path = out_path[:out_path.rindex('/')+1] if '/' in out_path else './'
+
+    with open(out_file_path+'annotation_iob.json', 'w') as f:
         json.dump(annotations, f)
-    
     
 if __name__ == '__main__':
     file_name = sys.argv[1]
