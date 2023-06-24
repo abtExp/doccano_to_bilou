@@ -104,8 +104,8 @@ def convert_to_bilou(jsonl_file, para_delimiter='\n\n\n', line_delimiter='\n', w
         text = doc[text_key]
         entity_key = 'entities' if 'entities' in doc.keys() else 'label'
         entities = doc[entity_key]
-        start_key = 'start' if entity_key == 'entities' else 0
-        end_key = 'end' if entity_key == 'entities' else 1
+        start_key = 'start_offset' if entity_key == 'entities' else 0
+        end_key = 'end_offset' if entity_key == 'entities' else 1
         label_key = 'label' if entity_key == 'entities' else 2
 
         text_without_entities = ""
